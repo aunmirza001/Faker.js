@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Data Generator</title>
+  <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="heading">
+      <h2>Random Data Generator</h2>
+    </div>
+    <div>
+      <input type="text" id="name" placeholder="Enter Name">
+      <input type="email" id="email" placeholder="Enter Email">
+      <input type="text" id="city" placeholder="Enter City">
+      <input type="text" id="zipcode" placeholder="Enter Zipsode">
+      <input type="text" id="country" placeholder="Enter Country">
+      <button>Generate</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js" referrerpolicy="no-referrer"></script>
+    <script>
+    let btnGen = document.querySelector('button');
+
+      btnGen.addEventListener('click', () => {
+      let info = faker.helpers.createCard();
+      let  {name, email, address:{city, country, zipcode}} = info;
+      
+      document.querySelector('#name').value = name;
+      document.querySelector('#email').value = email;
+      document.querySelector('#city').value = city;     
+      document.querySelector('#zipcode').value = zipcode;     
+      document.querySelector('#country').value = country;
+      });
+       </script>
+  </body>
+</html>
